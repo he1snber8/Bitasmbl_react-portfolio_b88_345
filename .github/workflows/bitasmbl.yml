@@ -13,6 +13,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+
       - name: Install Frontend
         run: npm create vite@latest frontend -- --template react-ts
       - name: Commit scaffold
