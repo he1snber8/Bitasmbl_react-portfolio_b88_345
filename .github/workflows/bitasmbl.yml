@@ -76,7 +76,6 @@ jobs:
           echo "diff=$DIFF_ESCAPED" >> $GITHUB_OUTPUT
 
       - name: Send to backend
-
         run: |
           curl -X POST https://2631-176-221-143-53.ngrok-free.app/projects/evaluate-code-diff \
             -H "Content-Type: application/json" \
