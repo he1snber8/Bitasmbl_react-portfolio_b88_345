@@ -58,6 +58,7 @@ jobs:
             -d @- <<EOF
 
       - name: Extract metadata from bitasmbl.json
+
         id: meta
         run: |
           PROJECT_APPLICATION_ID=$(jq -r '.projectApplicationId' bitasmbl.task.json)
