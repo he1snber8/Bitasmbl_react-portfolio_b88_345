@@ -51,11 +51,22 @@ jobs:
           fi
 
       - name: Check token validity
+        # run: |
+        #   curl --fail -X POST "https://2631-176-221-143-53.ngrok-free.app/users/check-token-validity" \
+        #     -H "Content-Type: application/json" \
+        #     -H "Authorization: Bearer ${{ secrets.BITASMBL_TOKEN }}" \
+        #     -d @- <<EOF
         run: |
-          curl --fail -X POST "https://2631-176-221-143-53.ngrok-free.app/users/check-token-validity" \
-            -H "Content-Type: application/json" \
-            -H "Authorization: Bearer ${{ secrets.BITASMBL_TOKEN }}" \
-            -d @- <<EOF
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
+           -X POST https://2631-176-221-143-53.ngrok-free.app/users/check-token-validity \
+           -H "Authorization: Bearer ${{ secrets.BITASMBL_TOKEN }}")
+
+          echo "Status: $STATUS"
+
+          if [ "$STATUS" -ne 200 ]; then
+          echo "::error::Token validation failed"
+          exit 1
+          fi
 
       - name: Extract metadata from bitasmbl.json
 
