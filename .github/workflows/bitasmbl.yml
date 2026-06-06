@@ -52,7 +52,7 @@ jobs:
 
       - name: Check token validity
         run: |
-          curl -X POST https://2631-176-221-143-53.ngrok-free.app/users/check-token-validity
+          curl -X POST https://2631-176-221-143-53.ngrok-free.app/users/check-token-validity \
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer ${{ secrets.BITASMBL_TOKEN }}" \
             -d @- <<EOF
