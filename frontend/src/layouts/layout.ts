@@ -1,0 +1,3 @@
+interface Layout {
+  name: string;
+}
