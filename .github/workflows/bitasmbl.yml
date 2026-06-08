@@ -61,11 +61,11 @@ jobs:
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer ${{ secrets.BITASMBL_TOKEN }}")
 
-          BODY=$(echo "$RESPONSE" | sed '$d')
+          
           STATUS=$(echo "$RESPONSE" | tail -n1)
 
           echo "Status: $STATUS"
-          echo "Response: $BODY"
+          echo "Something went wrong, try again later."
 
           if [ "$STATUS" -ne 200 ]; then
             echo "::error::$BODY"
@@ -107,11 +107,10 @@ jobs:
           EOF
           )
 
-          BODY=$(echo "$RESPONSE" | sed '$d')
           STATUS=$(echo "$RESPONSE" | tail -n1)
 
           echo "Status: $STATUS"
-          echo "Response: $BODY"
+          echo "Something went wrong, try again later."
 
           if [ "$STATUS" -ne 200 ]; then
             echo "::error::$BODY"
