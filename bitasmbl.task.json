@@ -2,68 +2,32 @@
   "projectApplicationId": 345,
   "requirementId": 895,
   "files": [
-    "frontend/src/layouts/layout.ts",
-    "frontend/src/layouts/layout2.ts"
+    "frontend/src/layouts/layout.tsx"
   ],
   "activityMeta": [
     {
-      "file": "frontend/src/layouts/layout.ts",
+      "file": "frontend/src/layouts/layout.tsx",
       "requirementId": 895,
       "requirementName": "Define portfolio layout",
-      "changes": 1,
+      "changes": 2,
       "modifiedRanges": [
         {
           "startLine": 1,
-          "endLine": 3,
-          "lineCount": 3
+          "endLine": 8,
+          "lineCount": 8
         }
       ],
       "timestamps": {
-        "firstModified": "2026-06-06T13:34:28.651Z",
-        "lastModified": "2026-06-06T13:34:28.652Z"
+        "firstModified": "2026-06-08T18:44:36.496Z",
+        "lastModified": "2026-06-08T18:45:06.126Z"
       },
       "activity": {
-        "activeDurationSec": 0,
+        "activeDurationSec": 29,
         "idleBreaks": 0,
-        "avgIntervalSec": 0
+        "avgIntervalSec": 14.5
       },
       "diffStats": {
-        "linesAdded": 3,
-        "linesDeleted": 0,
-        "largeChangeEvents": 0
-      },
-      "patterns": {
-        "burstEdits": false,
-        "longPauseBeforeEdit": false
-      },
-      "sourceHints": {
-        "possiblePaste": false,
-        "suspiciousJump": false
-      }
-    },
-    {
-      "file": "frontend/src/layouts/layout2.ts",
-      "requirementId": 895,
-      "requirementName": "Define portfolio layout",
-      "changes": 1,
-      "modifiedRanges": [
-        {
-          "startLine": 1,
-          "endLine": 3,
-          "lineCount": 3
-        }
-      ],
-      "timestamps": {
-        "firstModified": "2026-06-06T13:34:56.791Z",
-        "lastModified": "2026-06-06T13:34:56.791Z"
-      },
-      "activity": {
-        "activeDurationSec": 0,
-        "idleBreaks": 0,
-        "avgIntervalSec": 0
-      },
-      "diffStats": {
-        "linesAdded": 3,
+        "linesAdded": 8,
         "linesDeleted": 0,
         "largeChangeEvents": 0
       },
