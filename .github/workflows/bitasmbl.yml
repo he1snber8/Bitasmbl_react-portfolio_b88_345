@@ -78,8 +78,16 @@ jobs:
           PROJECT_APPLICATION_ID=$(jq -r '.projectApplicationId' bitasmbl.task.json)
           REQUIREMENT_ID=$(jq -r '.requirementId' bitasmbl.task.json)
 
+          # Extract the entire activityMeta object as a compact JSON string
+          ACTIVITY_DATA=$(jq -c '.activityMeta' bitasmbl.task.json)
+
           echo "project_application_id=$PROJECT_APPLICATION_ID" >> $GITHUB_OUTPUT
           echo "requirement_id=$REQUIREMENT_ID" >> $GITHUB_OUTPUT
+
+          # Use a heredoc for activity_data to safely handle the JSON string
+          echo "activity_data<<EOF" >> $GITHUB_OUTPUT
+          echo "$ACTIVITY_DATA" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
 
       - name: Get git diff
         id: diff
@@ -102,7 +110,8 @@ jobs:
             "requirementId": ${{ steps.meta.outputs.requirement_id }},
             "repo": "${{ github.repository }}",
             "commitSha": "${{ github.sha }}",
-            "diffs": ${{ steps.diff.outputs.diff }}
+            "diffs": ${{ steps.diff.outputs.diff }},
+            "activityMeta": ${{ steps.meta.outputs.activity_data }}
           }
           EOF
           )
