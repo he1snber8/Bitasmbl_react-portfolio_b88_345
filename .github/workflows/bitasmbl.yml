@@ -108,9 +108,10 @@ jobs:
           )
 
           STATUS=$(echo "$RESPONSE" | tail -n1)
+          BODY=$(echo "$RESPONSE" | sed '$d')
 
           echo "Status: $STATUS"
-          echo "Something went wrong, try again later."
+          
 
           if [ "$STATUS" -ne 200 ]; then
             echo "::error::$BODY"
