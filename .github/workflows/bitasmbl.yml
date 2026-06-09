@@ -80,7 +80,7 @@ jobs:
 
           # Extract the entire activityMeta object as a compact JSON string
           ACTIVITY_DATA=$(jq -c '.activityMeta' bitasmbl.task.json)
-
+          
           echo "project_application_id=$PROJECT_APPLICATION_ID" >> $GITHUB_OUTPUT
           echo "requirement_id=$REQUIREMENT_ID" >> $GITHUB_OUTPUT
 
