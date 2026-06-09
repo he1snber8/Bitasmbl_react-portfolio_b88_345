@@ -107,8 +107,8 @@ jobs:
             "commitSha": "${{ github.sha }}",
             "diffs": ${{ steps.diff.outputs.diff }},
             "activityMeta": ${{ steps.meta.outputs.activity_data }}
-            }
-            EOF
+          }
+          EOF
 
           RESPONSE=$(curl -s \
             -w "\n%{http_code}" \
