@@ -99,30 +99,30 @@ jobs:
 
       - name: Send to backend
         run: |
+          cat <<'EOF' > payload.json
+          {
+            "projectApplicationId": "${{ steps.meta.outputs.project_application_id }}",
+            "requirementId": "${{ steps.meta.outputs.requirement_id }}",
+            "repo": "${{ github.repository }}",
+            "commitSha": "${{ github.sha }}",
+            "diffs": ${{ steps.diff.outputs.diff }},
+            "activityMeta": ${{ steps.meta.outputs.activity_data }}
+            }
+            EOF
+
           RESPONSE=$(curl -s \
             -w "\n%{http_code}" \
             -X POST https://315f-176-221-143-53.ngrok-free.app/projects/evaluate-code-diff \
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer ${{ secrets.BITASMBL_TOKEN }}" \
-            -d @- <<EOF
-          {
-            "projectApplicationId": ${{ steps.meta.outputs.project_application_id }},
-            "requirementId": ${{ steps.meta.outputs.requirement_id }},
-            "repo": "${{ github.repository }}",
-            "commitSha": "${{ github.sha }}",
-            "diffs": ${{ steps.diff.outputs.diff }},
-            "activityMeta": ${{ steps.meta.outputs.activity_data }}
-          }
-          EOF
-          )
+            -d @payload.json)
 
           STATUS=$(echo "$RESPONSE" | tail -n1)
           BODY=$(echo "$RESPONSE" | sed '$d')
 
           echo "Status: $STATUS"
-          
 
           if [ "$STATUS" -ne 200 ]; then
-            echo "::error::$BODY"
-            exit 1
+          echo "::error::$BODY"
+          exit 1
           fi
