@@ -117,6 +117,9 @@ jobs:
             -H "Authorization: Bearer ${{ secrets.BITASMBL_TOKEN }}" \
             -d @payload.json)
 
+          echo "Payload:"
+          cat payload.json
+          
           STATUS=$(echo "$RESPONSE" | tail -n1)
           BODY=$(echo "$RESPONSE" | sed '$d')
 
