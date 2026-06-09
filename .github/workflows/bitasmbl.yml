@@ -57,11 +57,11 @@ jobs:
         run: |
           RESPONSE=$(curl -s \
             -w "\n%{http_code}" \
-            -X POST https://2631-176-221-143-53.ngrok-free.app/users/check-token-validity \
+            -X POST https://315f-176-221-143-53.ngrok-free.app/users/check-token-validity \
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer ${{ secrets.BITASMBL_TOKEN }}")
 
-          
+
           STATUS=$(echo "$RESPONSE" | tail -n1)
 
           echo "Status: $STATUS"
@@ -93,7 +93,7 @@ jobs:
         run: |
           RESPONSE=$(curl -s \
             -w "\n%{http_code}" \
-            -X POST https://2073-176-221-143-53.ngrok-free.app/projects/evaluate-code-diff \
+            -X POST https://315f-176-221-143-53.ngrok-free.app/projects/evaluate-code-diff \
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer ${{ secrets.BITASMBL_TOKEN }}" \
             -d @- <<EOF
