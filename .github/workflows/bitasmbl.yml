@@ -66,10 +66,9 @@ jobs:
           STATUS=$(echo "$RESPONSE" | tail -n1)
 
           echo "Status: $STATUS"
-          echo "Something went wrong, try again later."
 
           if [ "$STATUS" -ne 200 ]; then
-            echo "::error::$BODY"
+            echo "::error::Something went wrong, try again later."
             exit 1
           fi
 
