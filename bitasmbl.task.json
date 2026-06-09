@@ -9,36 +9,26 @@
       "file": "frontend/src/layouts/layout.tsx",
       "requirementId": 895,
       "requirementName": "Define portfolio layout",
-      "changes": 15,
+      "changes": 16,
       "modifiedRanges": [
         {
           "startLine": 1,
-          "endLine": 11,
-          "lineCount": 11
-        },
-        {
-          "startLine": 14,
-          "endLine": 21,
-          "lineCount": 8
-        },
-        {
-          "startLine": 24,
-          "endLine": 24,
-          "lineCount": 1
+          "endLine": 14,
+          "lineCount": 14
         }
       ],
       "timestamps": {
         "firstModified": "2026-06-08T18:44:36.496Z",
-        "lastModified": "2026-06-09T16:24:08.196Z"
+        "lastModified": "2026-06-09T16:24:56.749Z"
       },
       "activity": {
-        "activeDurationSec": 2184,
+        "activeDurationSec": 2232,
         "idleBreaks": 6,
-        "avgIntervalSec": 5197.6
+        "avgIntervalSec": 4875.75
       },
       "diffStats": {
-        "linesAdded": 20,
-        "linesDeleted": 10,
+        "linesAdded": 14,
+        "linesDeleted": 0,
         "largeChangeEvents": 0
       },
       "patterns": {
